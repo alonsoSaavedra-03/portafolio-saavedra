@@ -1,0 +1,70 @@
+/* src/components/pages/Habilidades/Habilidades.css */
+
+/* src/components/pages/Habilidades/Habilidades.css */
+
+.skills-section {
+    background-color: var(--color-bg-dark);
+    color: #ffffff;
+    
+    /* AJUSTE DE AIRE: 5rem arriba para mantener equilibrio y 8rem abajo para separar de Proyectos */
+    padding: 5rem 0 8rem 0; 
+  }
+  
+  .skills-card {
+    background-color: var(--color-card-bg) !important;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    transition: var(--transition-smooth);
+  }
+  /* Efecto hover en la tarjeta principal que ilumina sutilmente el contorno */
+  .skills-card:hover {
+    border-color: rgba(163, 230, 53, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+  
+  .skills-icon-container {
+    background-color: rgba(163, 230, 53, 0.05);
+    border: 1px solid rgba(163, 230, 53, 0.15);
+    color: var(--color-accent-neon);
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+  }
+  
+  .skills-card-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  /* --- ESTILOS DE LOS RECUADROS DE TECNOLOGÍA (NUEVO) --- */
+  .tech-box {
+    background-color: #0d0d0d; 
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    padding: 24px 16px !important; /* Aumentamos el padding superior e inferior (de 18px a 24px) */
+    transition: var(--transition-smooth);
+  }
+  
+  /* Al pasar el mouse por un logo individual, este salta e ilumina su borde */
+  .tech-box:hover {
+    transform: scale(1.03);
+    border-color: rgba(255, 255, 255, 0.1);
+    background-color: #121212;
+  }
+  
+  /* Tamaño de los logotipos vectoriales de Devicon */
+  .tech-icon-wrapper i {
+    font-size: 8rem; /* Subió de 2.2rem a 2.6rem */
+  }
+  
+  /* Nombre de la tecnología debajo del logo */
+  .tech-name {
+    color: #94a3b8;
+    font-size: 0.9rem; /* Un pelín más grande para mantener la proporción */
+    font-weight: 500;
+    font-family: monospace;
+  }

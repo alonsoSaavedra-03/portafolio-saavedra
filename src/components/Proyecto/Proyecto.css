@@ -1,0 +1,127 @@
+/* src/components/pages/Proyectos/Proyecto.css */
+
+.projects-section {
+    background-color: var(--color-bg-dark);
+    color: #ffffff;
+    padding: 5rem 0 8rem 0;
+  }
+  
+  /* Tarjeta principal con el fondo unificado de tu ecosistema dark */
+  .project-card {
+    background-color: var(--color-card-bg) !important;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-accent-neon);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* --- CONTENEDOR DE LA IMAGEN EN FORMATO 2x2 --- */
+  .project-image-wrapper {
+    position: relative;
+    height: 220px; /* 🚀 Altura balanceada para evitar desbordes en laptops */
+    background-color: #000000;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  }
+  
+  .project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.75;
+    transition: var(--transition-smooth);
+  }
+  
+  .project-card:hover .project-img {
+    opacity: 0.95;
+    transform: scale(1.02);
+  }
+  
+  /* --- TEXTOS --- */
+  .project-card-title {
+    font-size: 1.35rem; /* Letra imponente acorde al nuevo ancho de la card */
+    font-weight: 600;
+    color: #ffffff;
+    text-align: left;
+  }
+  
+  .project-card-description {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: left;
+  }
+  
+  /* --- TAGS / TECNOLOGÍAS --- */
+  .project-tags-container {
+    text-align: left;
+  }
+  
+  .project-tag-badge {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #cbd5e1;
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  /* --- BOTONES DE ACCIÓN (ESPEJO) --- */
+  .btn-project-code,
+  .btn-project-demo {
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 11px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition-smooth);
+  }
+  
+  /* Botón Código (Gris Minimalista) */
+  .btn-project-code {
+    background-color: #0d0d0d !important;
+    color: #94a3b8 !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+  
+  .btn-project-code:hover {
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  
+  /* Botón Demo (Contorno Neón) */
+  .btn-project-demo {
+    background-color: transparent !important;
+    color: var(--color-accent-neon) !important;
+    border: 1px solid var(--color-accent-neon) !important;
+  }
+  
+  .btn-project-demo:hover:not(.disabled) {
+    background-color: var(--color-accent-neon) !important;
+    color: #000000 !important;
+  }
+  
+  /* Clase de Bootstrap para links inhabilitados (#) */
+  .btn-project-demo.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: #334155 !important;
+    color: #334155 !important;
+  }
+  
+  .arrow-icon-small {
+    font-size: 0.85rem;
+    margin-left: 4px;
+  }

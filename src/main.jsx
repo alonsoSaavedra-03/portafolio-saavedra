@@ -8,6 +8,7 @@ import App from './App.jsx';
 // Importación de bootstrap 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 // Importación del diseño con css
 import './index.css';

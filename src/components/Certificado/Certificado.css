@@ -1,0 +1,122 @@
+/* src/components/pages/Certificados/Certificado.css */
+
+.certificates-section {
+    background-color: var(--color-bg-dark);
+    color: #ffffff;
+    padding: 5rem 0 8rem 0;
+  }
+  
+  .cert-card {
+    background-color: var(--color-card-bg) !important;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+  }
+  
+  .cert-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-accent-neon);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* --- CONTENEDOR DE IMAGEN REDUCIDO Y CONTROLADO --- */
+  .cert-img-container {
+    position: relative;
+    height: 210px; /* 🚀 Ajuste ideal: Ni muy grande ni muy chico, perfecto para laptops */
+    background-color: #000000;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  }
+  
+  .cert-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top; /* Muestra la cabecera del certificado */
+    opacity: 0.85;
+    transition: var(--transition-smooth);
+  }
+  
+  .cert-card:hover .cert-img-top {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  
+  /* --- BADGES FLOTANTES --- */
+  .cert-badge-float {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 0.65rem;
+    font-family: monospace;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  .badge-unmsm { 
+    background-color: #7f1d1d; 
+    color: #fecaca; 
+    border: 1px solid #b91c1c; 
+  }
+  
+  .badge-meta { 
+    background-color: #063970; 
+    color: #bee3f8; 
+    border: 1px solid #034f84; 
+  }
+  
+  /* --- TEXTOS COMPACTOS --- */
+  .cert-title-text {
+    font-size: 1.15rem; /* Tamaño balanceado para grillas de 3 */
+    font-weight: 600;
+    line-height: 1.4;
+    color: #ffffff;
+    text-align: left;
+  }
+  
+  .cert-issuer-text {
+    color: #64748b;
+    font-size: 0.85rem;
+    font-family: monospace;
+    text-align: left;
+  }
+  
+  /* --- BOTONES --- */
+  .btn-cert-view, 
+  .btn-cert-download {
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 10px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-cert-view {
+    background-color: #0d0d0d !important;
+    color: #94a3b8 !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+  
+  .btn-cert-view:hover {
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+  }
+  
+  .btn-cert-download {
+    background-color: transparent !important;
+    color: var(--color-accent-neon) !important;
+    border: 1px solid var(--color-accent-neon) !important;
+  }
+  
+  .btn-cert-download:hover {
+    background-color: var(--color-accent-neon) !important;
+    color: #000000 !important;
+  }

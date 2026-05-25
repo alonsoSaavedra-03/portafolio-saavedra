@@ -13,11 +13,10 @@ export const Footer = () => {
 
   return (
     <footer className="custom-footer py-4 px-4">
-      {/* CAMBIO CLAVE: Cambiamos 'container-fluid' por 'container' para encajar el contenido */}
       <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
         {/* Sección de Derechos Reservados */}
         <div className="footer-credits">
-          © {currentYear} ALONSO STEVENS SAAVEDRA DONAYRE – TODOS LOS DERECHOS RESERVADOS
+          © {currentYear} ALONSO SAAVEDRA DONAYRE – TODOS LOS DERECHOS RESERVADOS
         </div>
         
         {/* Sección de Ubicación */}

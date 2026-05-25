@@ -1,0 +1,75 @@
+/* src/components/pages/Servicios/Servicios.css */
+
+.services-section {
+    background-color: var(--color-bg-dark);
+    color: #ffffff;
+    padding: 5rem 0 8rem 0; /* Mantiene la consistencia de 8rem de separación inferior */
+  }
+  
+  /* Tarjeta base integrada con la variable global grafito */
+  .service-card {
+    background-color: var(--color-card-bg) !important;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    transition: var(--transition-smooth);
+  }
+  
+  /* Efecto hover: se eleva e ilumina el icono y los bordes */
+  .service-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(163, 230, 53, 0.15);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Contenedor del Icono Principal del Servicio */
+  .service-icon-wrapper {
+    background-color: rgba(163, 230, 53, 0.03);
+    border: 1px solid rgba(163, 230, 53, 0.1);
+    color: var(--color-accent-neon);
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    transition: var(--transition-smooth);
+  }
+  
+  .service-card:hover .service-icon-wrapper {
+    background-color: rgba(163, 230, 53, 0.08);
+    border-color: var(--color-accent-neon);
+    box-shadow: 0 0 15px rgba(163, 230, 53, 0.2);
+  }
+  
+  /* --- TEXTOS --- */
+  .service-card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+  
+  .service-card-description {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  /* --- LISTA DE ENTREGABLES (FEATURES) --- */
+  .service-features-list {
+    list-style: none;
+    text-align: left;
+  }
+  
+  .service-feature-item {
+    color: #cbd5e1;
+    font-size: 0.88rem;
+    font-family: monospace; /* Mantiene la estética técnica */
+  }
+  
+  /* Pequeña flecha indicadora */
+  .arrow-neon {
+    color: var(--color-accent-neon);
+    font-size: 0.8rem;
+    margin-top: 2px;
+  }
