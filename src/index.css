@@ -1,0 +1,10 @@
+:root {
+  /* Colores de la Imagen */
+  --color-bg-dark: #0d0d0d;       /* Fondo oscuro del navbar */
+  --color-accent-neon: #a3e635;   /* Verde lima/neón para 'PORTFOLIO' */
+  --color-text-nav: #94a3b8;      /* Gris claro para los enlaces inactivos */
+  --color-text-nav-hover: #ffffff;/* Blanco para cuando pasas el mouse */
+
+  /* Estilos de transición */
+  --transition-smooth: all 0.3s ease;
+}

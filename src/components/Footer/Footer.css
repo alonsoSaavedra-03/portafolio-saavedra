@@ -1,0 +1,25 @@
+/* src/components/Footer/Footer.css */
+
+.custom-footer {
+    background-color: var(--color-bg-dark) !important;
+    /* Línea superior sutil idéntica a la de la imagen */
+    border-top: 1px solid rgba(255, 255, 255, 0.05); 
+    width: 100%;
+  }
+  
+  /* Estilos comunes para los textos del footer */
+  .footer-credits,
+  .footer-location {
+    color: var(--color-text-nav); /* Usamos el gris claro que definimos en el root */
+    font-size: 0.75rem;           /* Un tamaño de fuente pequeño y elegante */
+    letter-spacing: 1.5px;        /* Espaciado de letras idéntico al diseño */
+    font-family: monospace;       /* Mantiene el look técnico */
+    text-transform: uppercase;    /* Asegura que siempre esté en mayúsculas */
+  }
+  
+  /* Efecto hover opcional por si el usuario pasa el mouse por encima */
+  .footer-credits:hover,
+  .footer-location:hover {
+    color: var(--color-text-nav-hover);
+    transition: var(--transition-smooth);
+  }
