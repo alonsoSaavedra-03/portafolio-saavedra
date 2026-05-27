@@ -1,112 +1,173 @@
 /* src/components/pages/SobreMi/SobreMi.css */
 
 .about-section {
-    background-color: var(--color-bg-dark);
-    color: #ffffff;
-  }
-  
-  /* Título de la sección idéntico al estilo */
+  /*CORRECCIÓN CLAVE */
+  background-color: transparent !important;
+  background: transparent !important;
+  color: #ffffff;
+}
+
+/* Título de la sección idéntico al estilo */
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* Tarjetas base con el fondo dinámico del root */
+.about-card {
+  background-color: var(--color-card-bg) !important; 
+  border: 1px solid var(--color-border-box) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  transition: var(--transition-smooth);
+}
+
+/* Efecto hover corregido para que se note sobre el grano del fondo */
+.about-card:hover {
+  /* AJUSTE DE VISIBILIDAD  */
+  border-color: color-mix(in srgb, var(--color-accent-neon) 40%, transparent) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedores de Iconos dinámicos */
+.icon-container {
+  background-color: color-mix(in srgb, var(--color-accent-neon) 12%, transparent); 
+  border: 1px solid color-mix(in srgb, var(--color-accent-neon) 25%, transparent);
+  color: var(--color-accent-neon);
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.card-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Cuerpo de textos del perfil */
+.card-body-custom p {
+  color: var(--color-text-nav); 
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* ESTILOS DE LA LÍNEA DE TIEMPO (TIMELINE) */
+.timeline {
+  position: relative;
+  border-left: 2px solid var(--color-border-box); 
+  padding-left: 24px;
+  margin-left: 8px;
+  text-align: left;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* El círculo o nodo de la línea de tiempo con efecto glow */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #121214;
+  border: 2px solid var(--color-accent-neon);
+  border-radius: 50%;
+  left: -31px;
+  top: 6px;
+  box-shadow: 0 0 10px color-mix(in srgb, var(--color-accent-neon) 60%, transparent);
+  transition: var(--transition-smooth);
+  z-index: 2;
+}
+
+/* Animación en el nodo cuando pasas el mouse por encima del item */
+.timeline-item:hover::before {
+  background-color: var(--color-accent-neon);
+  transform: scale(1.3);
+  box-shadow: 0 0 15px var(--color-accent-neon);
+}
+
+.timeline-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-accent-neon);
+  margin-bottom: 6px;
+}
+
+.timeline-subtitle {
+  color: color-mix(in srgb, var(--color-text-nav) 70%, transparent);
+  font-size: 0.85rem;
+  font-family: monospace;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+/* Badges customizados */
+.badge-custom {
+  background-color: transparent;
+  color: var(--color-accent-neon);
+  border: 1px solid var(--color-accent-neon);
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: monospace;
+  display: inline-block;
+  transition: var(--transition-smooth);
+}
+
+.badge-custom:hover {
+  background-color: color-mix(in srgb, var(--color-accent-neon) 15%, transparent);
+  color: #ffffff;
+}
+
+/* Variante para certificaciones internacionales */
+.badge-international {
+  color: var(--color-btn-neon); 
+  border-color: var(--color-btn-neon);
+}
+
+.badge-international:hover {
+  background-color: color-mix(in srgb, var(--color-btn-neon) 15%, transparent);
+  color: #ffffff;
+}
+/* ==========================================================================
+   RESPONSIVO PARA CELULARES
+   ========================================================================== */
+@media (max-width: 575.98px) {
   .section-title {
-    font-family: var(--font-serif);
-    font-size: 3rem;
-    font-weight: 700;
-    text-align: left;
+    font-size: 2.2rem;
   }
-  
-  /* Tarjetas base con azul/gris muy oscuro de fondo */
+
   .about-card {
-    background-color: var(--color-card-bg) !important; /* Tono de fondo oscuro de la imagen */
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
+    padding: 1.2rem !important;
   }
-  
-  /* Contenedores de Iconos */
-  .icon-container {
-    background-color: rgba(163, 230, 53, 0.05); /* Fondo verde traslúcido */
-    border: 1px solid rgba(163, 230, 53, 0.15);
-    color: var(--color-accent-neon);
-    width: 45px;
-    height: 45px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-  }
-  
-  .card-heading {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
-  
-  /* Cuerpo de textos del perfil */
-  .card-body-custom p {
-    color: #94a3b8;
-    font-size: 1rem;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-  
-  /* --- ESTILOS DE LA LÍNEA DE TIEMPO (TIMELINE) --- */
+
   .timeline {
-    position: relative;
-    border-left: 2px solid #1e293b; /* La línea vertical que une todo */
-    padding-left: 24px;
-    margin-left: 8px;
-    text-align: left;
+    padding-left: 16px;
+    margin-left: 4px;
   }
-  
-  .timeline-item {
-    position: relative;
-    margin-bottom: 2rem;
-  }
-  
-  .timeline-item:last-child {
-    margin-bottom: 0;
-  }
-  
-  /* El círculo o nodo de la línea de tiempo */
+
   .timeline-item::before {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: var(--color-card-bg); /* 👈 Mismo color de la card para ocultar la línea por debajo */
-    border: 2px solid var(--color-accent-neon);
-    border-radius: 50%;
-    left: -30px;
+    left: -22px; 
     top: 6px;
   }
   
-  .timeline-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-accent-neon);
-    margin-bottom: 6px;
+  .card-body-custom p {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
-  
-  .timeline-subtitle {
-    color: #64748b;
-    font-size: 0.85rem;
-    font-family: monospace;
-    margin-top: 8px;
-    margin-bottom: 0;
-  }
-  
-  /* Etiquetas o Badges customizados */
-  .badge-custom {
-    background-color: transparent;
-    color: var(--color-accent-neon);
-    border: 1px solid var(--color-accent-neon);
-    font-size: 0.7rem;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-family: monospace;
-    display: inline-block;
-  }
-  
-  /* Variante para certificaciones internacionales */
-  .badge-international {
-    color: #38bdf8; /* Tono celeste sutil para variar certificaciones */
-    border-color: #38bdf8;
-  }
+}

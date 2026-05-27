@@ -1,115 +1,114 @@
+/* src/components/Inicio/Inicio.css */
 
-/* --- CONTENEDOR PRINCIPAL DE LA SECCIÓN --- */
+/* CONTENEDOR PRINCIPAL DE LA SECCIÓN */
 .hero-section {
-    min-height: 80vh;
-    padding: 60px 0;
-    background-color: var(--color-bg-dark);
-  }
-  
-  /* --- TEXTOS PRINCIPALES (COLUMNA 1) --- */
-  .badge-status {
-    color: var(--color-accent-neon);
-    font-family: monospace;
-    font-size: 0.8rem;
-    letter-spacing: 1.5px;
-  }
-  
-  .hero-title {
-    color: #ffffff;
-    font-family: var(--font-serif);
-    font-size: 5rem;
-    font-weight: 700;
-    line-height: 0.95;
-  }
-  
-  /* Responsividad para el título masivo */
-  @media (max-width: 992px) {
-    .hero-title { 
-      font-size: 3.5rem; 
-    }
-  }
-  
-  .text-neon {
-    color: var(--color-accent-neon);
-  }
-  
-  .dot-gray {
-    color: #555555;
-  }
-  
-  .hero-description {
-    color: var(--color-text-nav);
-    font-size: 1.15rem;
-    line-height: 1.6;
-    max-width: 450px;
-  }
-  
-  /* --- FOTOGRAFÍA DE PERFIL (COLUMNA 2) --- */
-  .hero-image-container {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .hero-profile-img {
-    width: 100%;
-    max-width: 260px;
-    height: 340px;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    filter: grayscale(30%);
-    transition: var(--transition-smooth);
-  }
-  
-  .hero-profile-img:hover {
-    filter: grayscale(0%);
-    border-color: var(--color-accent-neon);
-  }
-  
-  /* --- CAJAS DE INFORMACIÓN (COLUMNA 3) --- */
-  .info-box {
-    background-color: transparent;
-    border: 1px solid var(--color-border-box);
-    padding: 18px 24px;
-    text-align: left;
-    border-radius: 4px;
-  }
-  
-  .info-box-title {
-    color: #555555;
-    font-family: monospace;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    display: block;
-    margin-bottom: 6px;
-  }
-  
-  .info-box-value {
-    color: #ffffff;
-    font-size: 1.05rem;
-    font-weight: 500;
-    margin: 0;
-  }
-  
-  /* --- COMPORTAMIENTO ESPEJO PARA LOS BOTONES --- */
-  .btn-neon-action,
-  .btn-neon-outline {
-    font-family: monospace;
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    padding: 14px 8px;
-    border-radius: 4px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    transition: var(--transition-smooth);
-    text-decoration: none;
-    height: 50px;
-    margin-top: 0 !important; /* Centralizamos el reset de margen aquí */
-  }
-  
-/* --- PROPIEDADES BASE PARA AMBOS BOTONES --- */
+  min-height: 100vh; 
+  padding: 120px 0 60px 0 !important; 
+  background-color: transparent !important; 
+  background: transparent !important;
+  display: flex;
+  align-items: center; 
+}
+
+/* TEXTOS PRINCIPALES (COLUMNA 1) */
+.badge-status {
+  color: var(--color-accent-neon);
+  font-family: monospace;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+}
+
+.hero-title {
+  color: #ffffff;
+  font-family: var(--font-serif);
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 0.95;
+}
+
+.text-neon {
+  color: var(--color-accent-neon);
+}
+
+.dot-gray {
+  color: #555555;
+}
+
+.hero-description {
+  color: var(--color-text-nav);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  max-width: 450px;
+}
+
+/* FOTOGRAFÍA DE PERFIL (COLUMNA 2) */
+.hero-image-container {
+  position: relative;
+  display: inline-block;
+  background-color: transparent !important;
+  border: none !important;
+  transform: scale(1.25); 
+  margin-bottom: -20px; 
+  filter: drop-shadow(0 0 35px color-mix(in srgb, var(--color-accent-neon) 20%, transparent)) !important;
+  transition: var(--transition-smooth);
+  z-index: 2;
+}
+
+.hero-profile-img {
+  width: 100%;
+  max-width: 280px !important;
+  height: auto !important;
+  object-fit: contain;
+  background-color: transparent !important;
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  filter: grayscale(10%);
+  transition: var(--transition-smooth);
+}
+
+/* Efectos Interactivos al pasar el mouse */
+.hero-image-container:hover {
+  filter: drop-shadow(0 0 50px color-mix(in srgb, var(--color-accent-neon) 35%, transparent)) !important;
+}
+
+.hero-profile-img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.03);
+}
+
+/* CAJAS DE INFORMACIÓN (COLUMNA 3) */
+.info-box {
+  background-color: var(--color-card-bg) !important;
+  border: 1px solid var(--color-border-box) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 18px 24px;
+  text-align: left;
+  border-radius: 4px;
+  transition: var(--transition-smooth);
+}
+
+.info-box:hover {
+  border-color: color-mix(in srgb, var(--color-accent-neon) 30%, transparent) !important;
+}
+
+.info-box-title {
+  color: #64748b; 
+  font-family: monospace;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.info-box-value {
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* PROPIEDADES BASE PARA AMBOS BOTONES */
 .btn-neon-action,
 .btn-neon-outline {
   font-family: monospace;
@@ -117,10 +116,7 @@
   font-size: 0.8rem;
   letter-spacing: 1px;
   padding: 14px 8px;
-  
-  /* CAMBIO CLAVE 1: Forzamos bordes sutiles de 4px para quitar la curva exagerada */
   border-radius: 4px !important; 
-  
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -130,21 +126,19 @@
   margin-top: 0 !important;
 }
 
-/* --- BOTÓN PRIMARIO (LLENO) --- */
+/* BOTÓN PRIMARIO */
 .btn-neon-action {
-  /* CAMBIO CLAVE 2: Usamos el mismo verde neón del logo para que armonicen */
   background-color: var(--color-accent-neon) !important;
   color: #000000 !important;
   border: none !important;
 }
 
 .btn-neon-action:hover {
-  /* Al pasar el mouse por el botón lleno, se oscurece un pelín para dar feedback */
-  background-color: #bef264 !important; 
+  filter: brightness(1.2); 
   transform: translateY(-2px);
 }
 
-/* --- BOTÓN SECUNDARIO (OUTLINE) --- */
+/* BOTÓN SECUNDARIO */
 .btn-neon-outline {
   background-color: transparent !important;
   color: var(--color-accent-neon) !important;
@@ -152,12 +146,48 @@
 }
 
 .btn-neon-outline:hover {
-  background-color: rgba(163, 230, 53, 0.1) !important;
+  background-color: color-mix(in srgb, var(--color-accent-neon) 10%, transparent) !important;
   color: #ffffff !important;
   border-color: #ffffff !important;
   transform: translateY(-2px);
 }
 
-.arrow-icon {
-  margin-left: 6px;
+/* ==========================================================================
+   RESPONSIVO PARA CELULARES
+   ========================================================================== */
+@media (max-width: 992px) {
+  .hero-title { 
+    font-size: 3.5rem; 
+  }
+  .hero-section {
+    padding-top: 100px !important; 
+    padding-bottom: 40px !important;
+  }
+  .hero-image-container {
+    transform: scale(1);
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-title {
+    font-size: 2.8rem; 
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .hero-profile-img {
+    max-width: 220px !important; 
+    height: auto !important;
+    margin: 15px auto; 
+  }
+
+  .btn-neon-action,
+  .btn-neon-outline {
+    width: 100%; 
+    margin-bottom: 12px;
+  }
 }

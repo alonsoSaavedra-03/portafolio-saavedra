@@ -1,44 +1,101 @@
+/* src/index.css */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css');
 
 :root {
-  /* Colores de la Imagen */
-  --color-bg-dark: #0d0d0d;       
-  --color-accent-neon: #a3e635;   
-  --color-text-nav: #94a3b8;      
+  --color-bg-dark: #121214;        
+  --color-card-bg: rgba(26, 26, 30, 0.55); 
+  --color-border-box: rgba(42, 42, 48, 0.4); 
+  
+  --color-accent-neon: #a855f7;
+  --color-btn-neon: #ec4899;
+  
+  --color-text-nav: white;      
   --color-text-nav-hover: #ffffff;
-
-  /* NUEVAS VARIABLES PARA EL INICIO */
-  --color-btn-neon: #bef264;      
-  --color-border-box: #1e293b;    
   --font-serif: 'Playfair Display', 'Georgia', serif; 
-
-  /* Estilos de transición */
   --transition-smooth: all 0.3s ease;
-
-  /* Estilo de card */
-  --color-card-bg: #161616;
 }
 
+/* Reinicio de márgenes básicos */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* FONDO ABSTRACTO GLOBAL ANIMADO  */
+body {
+  margin: 0;
+  font-family: var(--font-serif);
+  background-color: var(--color-bg-dark);
+  
+  /* Imagen abstracta de Unsplash que conseguiste */
+  background-image: url("https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80");
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: 0px 0px;
+  
+  /* Ajustamos a 120s para que el movimiento de fondo sea súper sutil y no canse la vista */
+  animation: fondoAbstractoInfinito 120s linear infinite;
+  
+  /* Mantiene el fondo quieto mientras el contenido real de tu trabajo se desplaza encima */
+  background-attachment: fixed; 
+  
+  color: #eee;
+  overflow-x: hidden;
+}
+
+@keyframes fondoAbstractoInfinito {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 0px -3000px; /* Desplazamiento vertical constante */
+  }
+}
+
+/* Configuración de scroll general */
 html {
   scroll-behavior: smooth;
-  
-  /* CAMBIO CLAVE: Aumentamos el padding del scroll. 
-     Prueba con 120px o 140px para que el título baje y no quede pegado al menú */
-  scroll-padding-top: 30px; 
+  scroll-padding-top: 45px;
 }
 
-/* src/components/pages/SobreMi/SobreMi.css */
-
+/* Secciones del portafolio */
 .about-section {
-  background-color: var(--color-bg-dark);
-  color: #ffffff;
-  
-  /* CAMBIO: Aumentamos el padding superior de 60px a 100px */
-  padding: 100px 0 60px 0; /* Arriba, Derecha, Abajo, Izquierda */
+  padding: 120px 0 60px 0;
 }
 
-/* --- DISEÑO DE LA BARRA DE DESPLAZAMIENTO (SCROLLBAR) --- */
+/* ELIMINACIÓN DE FONDOS OPACOS */
+#root,
+.app-container,
+main,
+section,
+.container,
+.container-fluid,
+.row,
+[class*="section"] {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* ESTILO RECOMENDADO PARA LAS TARJETAS DE TU TRABAJO  */
+.portfolio-card {
+  background-color: var(--color-card-bg) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border-box);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: var(--transition-smooth);
+}
+
+.portfolio-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-accent-neon);
+  box-shadow: 0 10px 30px rgba(255, 87, 34, 0.1);
+}
+
+/* DISEÑO DE LA BARRA DE DESPLAZAMIENTO (SCROLLBAR)  */
 ::-webkit-scrollbar {
   width: 10px;
 }

@@ -28,7 +28,7 @@ const Perfil = () => {
               
               <div className="card-body-custom text-start">
               <p>
-                Estudiante de Informática y Desarrollo de Aplicaciones Web en SENATI e Ingeniero de Sistemas Computacionales. Mi mayor fortaleza es mi enfoque analítico y mi capacidad para la resolución lógica de problemas, destacando en la depuración de errores y optimización de código.
+                Estudiante de Informática y Desarrollo de Aplicaciones Web en SENATI. Mi mayor fortaleza es mi enfoque analítico y mi capacidad para la resolución lógica de problemas, destacando en la depuración de errores y optimización de código.
                 </p>
                 <p>
                 Cuento con las Certificaciones Internacionales de Meta Platforms en Desarrollo Frontend y Backend, además de una especialización en Python respaldada por la Universidad Nacional Mayor de San Marcos (UNMSM).

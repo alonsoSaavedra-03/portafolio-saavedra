@@ -1,33 +1,37 @@
 /* src/components/pages/Proyectos/Proyecto.css */
 
 .projects-section {
-    background-color: var(--color-bg-dark);
+    background-color: transparent !important;
+    background: transparent !important;
     color: #ffffff;
     padding: 5rem 0 8rem 0;
   }
   
-  /* Tarjeta principal con el fondo unificado de tu ecosistema dark */
+  /* Tarjeta principal con el fondo Glassmorphism unificado */
   .project-card {
     background-color: var(--color-card-bg) !important;
-    border: 1px solid rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--color-border-box) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 12px;
     overflow: hidden;
     transition: var(--transition-smooth);
   }
   
+  /* Hover de la tarjeta principal unificado */
   .project-card:hover {
     transform: translateY(-5px);
-    border-color: var(--color-accent-neon);
+    border-color: color-mix(in srgb, var(--color-accent-neon) 40%, transparent) !important;
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
   }
   
-  /* --- CONTENEDOR DE LA IMAGEN EN FORMATO 2x2 --- */
+  /* CONTENEDOR DE LA IMAGEN EN FORMATO 2x2 */
   .project-image-wrapper {
     position: relative;
-    height: 220px; /* 🚀 Altura balanceada para evitar desbordes en laptops */
-    background-color: #000000;
+    background-color: rgba(15, 15, 15, 0.4) !important;
+    border-bottom: 1px solid var(--color-border-box);
+    height: 220px; 
     overflow: hidden;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
   }
   
   .project-img {
@@ -43,38 +47,38 @@
     transform: scale(1.02);
   }
   
-  /* --- TEXTOS --- */
+  /* TEXTOS */
   .project-card-title {
-    font-size: 1.35rem; /* Letra imponente acorde al nuevo ancho de la card */
+    font-size: 1.35rem; 
     font-weight: 600;
     color: #ffffff;
     text-align: left;
   }
   
   .project-card-description {
-    color: #94a3b8;
+    color: var(--color-text-nav);
     font-size: 0.95rem;
     line-height: 1.6;
     text-align: left;
   }
   
-  /* --- TAGS / TECNOLOGÍAS --- */
+  /* TAGS / TECNOLOGÍAS */
   .project-tags-container {
     text-align: left;
   }
   
   .project-tag-badge {
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
     color: #cbd5e1;
     font-family: monospace;
     font-size: 0.75rem;
     font-weight: 600;
     padding: 4px 10px;
     border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
   }
   
-  /* --- BOTONES DE ACCIÓN (ESPEJO) --- */
+  /*  BOTONES DE ACCIÓN  */
   .btn-project-code,
   .btn-project-demo {
     font-family: monospace;
@@ -89,19 +93,20 @@
     transition: var(--transition-smooth);
   }
   
-  /* Botón Código (Gris Minimalista) */
+  /* Botón Código */
   .btn-project-code {
-    background-color: #0d0d0d !important;
-    color: #94a3b8 !important;
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    background-color: rgba(15, 15, 15, 0.6) !important;
+    color: var(--color-text-nav) !important;
+    border: 1px solid var(--color-border-box) !important;
   }
   
   .btn-project-code:hover {
     color: #ffffff !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: color-mix(in srgb, var(--color-text-nav) 50%, transparent) !important;
   }
   
-  /* Botón Demo (Contorno Neón) */
+  /* Botón Demo */
   .btn-project-demo {
     background-color: transparent !important;
     color: var(--color-accent-neon) !important;
@@ -113,7 +118,7 @@
     color: #000000 !important;
   }
   
-  /* Clase de Bootstrap para links inhabilitados (#) */
+  /* Clase de Bootstrap para links inhabilitados */
   .btn-project-demo.disabled {
     opacity: 0.3;
     cursor: not-allowed;

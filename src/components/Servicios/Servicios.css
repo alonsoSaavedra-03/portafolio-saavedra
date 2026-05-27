@@ -1,30 +1,33 @@
 /* src/components/pages/Servicios/Servicios.css */
 
 .services-section {
-    background-color: var(--color-bg-dark);
+    background-color: transparent !important;
+    background: transparent !important;
     color: #ffffff;
-    padding: 5rem 0 8rem 0; /* Mantiene la consistencia de 8rem de separación inferior */
+    padding: 5rem 0 8rem 0; 
   }
   
-  /* Tarjeta base integrada con la variable global grafito */
+  /* Tarjeta base integrada con el efecto cristal traslúcido */
   .service-card {
     background-color: var(--color-card-bg) !important;
-    border: 1px solid rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--color-border-box) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 12px;
     transition: var(--transition-smooth);
   }
   
-  /* Efecto hover: se eleva e ilumina el icono y los bordes */
+  /* Efecto hover unificado */
   .service-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(163, 230, 53, 0.15);
+    border-color: color-mix(in srgb, var(--color-accent-neon) 40%, transparent) !important;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
   }
   
   /* Contenedor del Icono Principal del Servicio */
   .service-icon-wrapper {
-    background-color: rgba(163, 230, 53, 0.03);
-    border: 1px solid rgba(163, 230, 53, 0.1);
+    background-color: color-mix(in srgb, var(--color-accent-neon) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-accent-neon) 25%, transparent);
     color: var(--color-accent-neon);
     width: 50px;
     height: 50px;
@@ -36,13 +39,14 @@
     transition: var(--transition-smooth);
   }
   
+  /* Feedback visual al hacer hover sobre la tarjeta */
   .service-card:hover .service-icon-wrapper {
-    background-color: rgba(163, 230, 53, 0.08);
+    background-color: color-mix(in srgb, var(--color-accent-neon) 20%, transparent);
     border-color: var(--color-accent-neon);
-    box-shadow: 0 0 15px rgba(163, 230, 53, 0.2);
+    box-shadow: 0 0 15px color-mix(in srgb, var(--color-accent-neon) 30%, transparent);
   }
   
-  /* --- TEXTOS --- */
+  /*TEXTOS*/
   .service-card-title {
     font-size: 1.4rem;
     font-weight: 600;
@@ -50,12 +54,12 @@
   }
   
   .service-card-description {
-    color: #94a3b8;
+    color: var(--color-text-nav);
     font-size: 0.95rem;
     line-height: 1.6;
   }
   
-  /* --- LISTA DE ENTREGABLES (FEATURES) --- */
+  /* LISTA DE ENTREGABLES (FEATURES - MANTENIDOS INTACTOS) */
   .service-features-list {
     list-style: none;
     text-align: left;
@@ -64,7 +68,7 @@
   .service-feature-item {
     color: #cbd5e1;
     font-size: 0.88rem;
-    font-family: monospace; /* Mantiene la estética técnica */
+    font-family: monospace; 
   }
   
   /* Pequeña flecha indicadora */
@@ -73,3 +77,30 @@
     font-size: 0.8rem;
     margin-top: 2px;
   }
+
+/* ==========================================================================
+   RESPONSIVO PARA CELULARES
+   ========================================================================== */
+@media (max-width: 575.98px) {
+  .services-section {
+    padding: 4rem 0 5rem 0;
+  }
+
+  .service-card {
+    padding: 1.5rem !important;
+  }
+
+  .service-card-title {
+    font-size: 1.25rem;
+  }
+
+  .service-card-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .service-feature-item {
+    font-size: 0.82rem;
+    margin-bottom: 8px;
+  }
+}

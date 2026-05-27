@@ -1,9 +1,11 @@
 /* src/components/pages/Contacto/Contacto.css */
 
 .contact-section {
-    background-color: var(--color-bg-dark);
+    /* CORRECCIÓN DE FONDO */
+    background-color: transparent !important;
+    background: transparent !important;
     color: #ffffff;
-    padding: 5rem 0 8rem 0; /* Última sección, mantenemos los 8rem inferiores */
+    padding: 5rem 0 8rem 0; 
   }
   
   .contact-subtitle {
@@ -12,27 +14,29 @@
   }
   
   .contact-description {
-    color: #94a3b8;
+    color: var(--color-text-nav);
     font-size: 1rem;
     line-height: 1.6;
   }
   
-  /* --- CAJAS DE CANALES (IZQUIERDA) --- */
+  /* CAJAS DE CANALES (IZQUIERDA) */
   .contact-box {
-    background-color: var(--color-card-bg);
-    border: 1px solid rgba(255, 255, 255, 0.02);
+    background-color: var(--color-card-bg) !important;
+    border: 1px solid var(--color-border-box) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 10px;
     transition: var(--transition-smooth);
   }
   
   .contact-box:hover {
-    transform: translateX(5px); /* Desplazamiento sutil a la derecha */
-    border-color: rgba(163, 230, 53, 0.15);
+    transform: translateX(5px);
+    border-color: color-mix(in srgb, var(--color-accent-neon) 40%, transparent) !important;
   }
   
   .contact-icon-wrapper {
-    background-color: rgba(163, 230, 53, 0.03);
-    border: 1px solid rgba(163, 230, 53, 0.1);
+    background-color: color-mix(in srgb, var(--color-accent-neon) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-accent-neon) 25%, transparent);
     color: var(--color-accent-neon);
     width: 45px;
     height: 45px;
@@ -58,10 +62,12 @@
     font-weight: 500;
   }
   
-  /* --- TARJETA FORMULARIO (DERECHA) --- */
+  /* TARJETA FORMULARIO (DERECHA) */
   .contact-form-card {
-    background-color: var(--color-card-bg);
-    border: 1px solid rgba(255, 255, 255, 0.02);
+    background-color: var(--color-card-bg) !important;
+    border: 1px solid var(--color-border-box) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 12px;
   }
   
@@ -74,11 +80,11 @@
     margin-bottom: 8px;
   }
   
-  /* Estilo personalizado para inputs oscuros estilo cyberpunk */
+  /* Estilo personalizado para inputs oscuros traslúcidos */
   .form-control-custom {
     width: 100%;
-    background-color: #0d0d0d !important;
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    background-color: rgba(15, 15, 15, 0.6) !important;
+    border: 1px solid var(--color-border-box) !important;
     border-radius: 6px;
     padding: 12px 16px;
     color: #ffffff !important;
@@ -89,15 +95,14 @@
   .form-control-custom:focus {
     outline: none;
     border-color: var(--color-accent-neon) !important;
-    box-shadow: 0 0 10px rgba(163, 230, 53, 0.1) !important;
+    box-shadow: 0 0 10px color-mix(in srgb, var(--color-accent-neon) 20%, transparent) !important;
   }
   
-  /* Color del placeholder en gris atenuado */
   .form-control-custom::placeholder {
     color: #475569;
   }
   
-  /* --- BOTÓN DE ENVÍO --- */
+  /* BOTÓN DE ENVÍO */
   .btn-contact-submit {
     background-color: var(--color-accent-neon) !important;
     color: #000000 !important;
@@ -114,9 +119,42 @@
   .btn-contact-submit:hover {
     background-color: transparent !important;
     color: var(--color-accent-neon) !important;
-    box-shadow: 0 0 15px rgba(163, 230, 53, 0.2);
+    border-color: var(--color-accent-neon) !important;
+    /* Sombra de hover adaptada con tu neón actual */
+    box-shadow: 0 0 15px color-mix(in srgb, var(--color-accent-neon) 30%, transparent);
   }
   
   .arrow-icon {
     font-weight: bold;
   }
+
+/* ==========================================================================
+   RESPONSIVO PARA CELULARES
+   ========================================================================== */
+@media (max-width: 575.98px) {
+  .contact-section {
+    padding: 4rem 0 5rem 0;
+  }
+
+  .contact-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .contact-description {
+    font-size: 0.95rem;
+  }
+
+  .contact-box:hover {
+    transform: translateY(-3px); 
+  }
+
+  .contact-form-card {
+    padding: 1.5rem !important;
+  }
+
+  .btn-contact-submit {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 16px;
+  }
+}

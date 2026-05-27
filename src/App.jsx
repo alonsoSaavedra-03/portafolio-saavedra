@@ -1,5 +1,7 @@
 // src/App.jsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import Loader from './components/Loader/Loader';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Inicio from './components/Inicio/Inicio';
@@ -11,51 +13,100 @@ import Servicios from './components/Servicios/Servicios';
 import Contacto from './components/Contacto/Conctacto';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const [progreso, setProgreso] = useState(0);
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+      // Simulador del progreso de la barra y raíces
+      const intervalo = setInterval(() => {
+        setProgreso((prev) => {
+          // Reductor de velocidad para el Loader
+          const siguiente = prev + Math.floor(Math.random() * 4) + 2;
+          
+          if (siguiente >= 100) {
+            clearInterval(intervalo);
+            
+            // Tiempo de carga entre el Loader y el contenido principal
+            setTimeout(() => {
+              setLoading(false);
+            }, 300);
+            
+            return 100;
+          }
+          return siguiente;
+        });
+      }, 140);
+
+      return () => clearInterval(intervalo);
+    }, []);
+
+  // Restriccion del scroll para el botón flotante
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  if (loading) {
+    return <Loader progreso={progreso} />;
+  }
+
   return (
     <>
-      // src/App.jsx
-
       <Navbar />
-            
-      {/* Todo el contenido vive en este contenedor principal */}
-      <main style={{ backgroundColor: 'var(--color-bg-dark)', paddingTop: '90px' }}>
-        
-        {/* SECCIÓN 1: INICIO */}
+          
+      <main className="main-content">
         <section id="inicio">
           <Inicio />
         </section>
         
-        {/* SECCIÓN 2: SOBRE MÍ / PERFIL */}
         <section id="perfil" className="about-section">
           <Perfil />
         </section>
 
-        {/* SECCIÓN 3: HABILIDADES */}
         <section id="habilidades" className="container py-5 text-white">
           <Habilidades />
         </section>
 
-        {/* SECCIÓN 4: PROYECTOS */}
         <section id="proyectos" className="container py-5 text-white">
           <Proyecto />
         </section>
 
-        {/* SECCIÓN 5: CERTIFICADOS */}
         <section id="certificados" className="container py-5 text-white">
           <Certificado />
         </section>
 
-        {/* SECCIÓN 6: SERVICIOS */}
         <section id="servicios" className="container py-5 text-white">
           <Servicios />
         </section>
 
-        {/* SECCIÓN 7: CONTACTO */}
         <section id="contacto" className="container py-5 text-white">
           <Contacto />
         </section>
-
       </main>
+
+      <button 
+        className={`scroll-to-top-btn ${showButton ? 'visible' : ''}`} 
+        onClick={scrollToTop}
+        aria-label="Volver arriba"
+      >
+        <i className="bi bi-arrow-up-short"></i>
+      </button>
 
       <Footer />
     </>

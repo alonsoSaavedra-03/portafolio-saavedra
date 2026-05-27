@@ -39,17 +39,14 @@ const Habilidades = () => {
       skills: [
         { name: 'MySQL', iconClass: 'devicon-mysql-original colored' },
         { name: 'PostgreSQL', iconClass: 'devicon-postgresql-plain colored' },
-        { name: 'GitHub', iconClass: 'devicon-github-original' }, // GitHub luce mejor blanco/original en modo dark
+        { name: 'GitHub', iconClass: 'devicon-github-original' },
         { name: 'Git Bash', iconClass: 'devicon-git-plain colored' }
       ]
     }
   ];
 
-  // src/components/pages/Habilidades/Habilidades.jsx
-
 return (
     <section className="skills-section py-5">
-      {/* CAMBIO CLAVE: Cambiamos 'container' por 'container-fluid' con padding adaptativo */}
       <div className="container-fluid px-4 px-md-5">
         
         {/* Título de la Sección */}

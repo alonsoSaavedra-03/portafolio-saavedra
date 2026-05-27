@@ -29,21 +29,21 @@ const Proyectos = () => {
     },
     {
       id: 3,
-      title: 'E-commerce API & Frontend',
-      description: 'Tienda virtual moderna con pasarela de pagos simulada, carrito de compras reactivo con persistencia de datos y panel de control administrativo para la actualización de stock.',
-      tags: ['React', 'Node.js', 'Express', 'PostgreSQL'],
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop',
-      githubLink: 'https://github.com/alonsoSaavedra-03',
-      demoLink: '#'
+      title: 'Gestion de una Institucion Educativa',
+      description: 'Sistema de gestión para la administración de estudiantes, docentes y cursos en una institución educativa.',
+      tags: ['JavaScript Vanilla', 'Php', 'Html', 'Css', 'Bootstrap', 'Mysql'],
+      image: '/img/proyect3.png',
+      githubLink: 'https://github.com/alonsoSaavedra-03/Semana01-programaci-n',
+      demoLink: 'https://alonso-saavedra.xo.je/'
     },
     {
       id: 4,
-      title: 'Data & Automation Engine',
-      description: 'Scripts de automatización y procesamiento batch de datos. Diseñado para optimizar flujos ETL rutinarios, generación automática de reportes ejecutivos e ingesta de datos limpios.',
-      tags: ['Python', 'Pandas', 'REST API', 'JSON'],
-      image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop',
-      githubLink: 'https://github.com/alonsoSaavedra-03',
-      demoLink: '#'
+      title: 'Portafolio web personal',
+      description: 'Portafolio web personal desarrollado con React y Vite, diseñado para mostrar proyectos, habilidades y experiencia de manera profesional y atractiva.',
+      tags: ['React', 'JavaScript', 'Bootstrap', 'Css', 'Vite'],
+      image: '/img/proyect4.png',
+      githubLink: 'https://github.com/alonsoSaavedra-03/portafolio-saavedra',
+      demoLink: 'https://portafolio-saavedra.vercel.app/'
     }
   ];
 
@@ -54,7 +54,7 @@ const Proyectos = () => {
         {/* Título de la Sección */}
         <h2 className="section-title mb-5">Proyectos</h2>
 
-        {/* 🚀 ESTRUCTURA 2x2: Usamos col-lg-6 para pintar dos columnas simétricas por fila */}
+        {/* ESTRUCTURA 2x2 */}
         <div className="row g-4">
           {listaProyectos.map((proyecto) => (
             <div className="col-lg-6 col-md-12 col-sm-12" key={proyecto.id}>

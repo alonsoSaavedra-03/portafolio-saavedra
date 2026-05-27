@@ -1,25 +1,87 @@
 /* src/components/Footer/Footer.css */
 
 .custom-footer {
-    background-color: var(--color-bg-dark) !important;
-    /* Línea superior sutil idéntica a la de la imagen */
-    border-top: 1px solid rgba(255, 255, 255, 0.05); 
-    width: 100%;
+  background-color: rgba(10, 10, 12, 0.4) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--color-border-box) !important; 
+  width: 100%;
+}
+
+/* Estilos comunes refinados para los textos */
+.footer-credits,
+.footer-location {
+  color: var(--color-text-nav); 
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  font-family: monospace;       
+  text-transform: uppercase;    
+  transition: var(--transition-smooth);
+}
+
+/* Destaque sutil de tu nombre */
+.highlight-name {
+  color: #ffffff;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.custom-footer:hover .highlight-name {
+  color: var(--color-accent-neon);
+}
+
+/* EL NODO DE PULSO EN TIEMPO REAL */
+.status-pulse {
+  width: 7px;
+  height: 7px;
+  background-color: var(--color-accent-neon);
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  /* Pequeño glow estático */
+  box-shadow: 0 0 8px var(--color-accent-neon);
+}
+
+/* El efecto onda expansiva usando un pseudoelemento animado */
+.status-pulse::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--color-accent-neon);
+  border-radius: 50%;
+  animation: footerPulse 2s infinite ease-out;
+}
+
+/* Animación matemática de la onda del pulso */
+@keyframes footerPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
   }
-  
-  /* Estilos comunes para los textos del footer */
-  .footer-credits,
+  100% {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVO PARA CELULARES
+   ========================================================================== */
+@media (max-width: 767.98px) {
+  .custom-footer {
+    padding: 2rem 1.5rem !important;
+  }
+
+  .footer-credits {
+    text-align: center;
+    line-height: 1.6;
+    max-width: 90%;
+  }
+
   .footer-location {
-    color: var(--color-text-nav); /* Usamos el gris claro que definimos en el root */
-    font-size: 0.75rem;           /* Un tamaño de fuente pequeño y elegante */
-    letter-spacing: 1.5px;        /* Espaciado de letras idéntico al diseño */
-    font-family: monospace;       /* Mantiene el look técnico */
-    text-transform: uppercase;    /* Asegura que siempre esté en mayúsculas */
+    margin-top: 4px;
   }
-  
-  /* Efecto hover opcional por si el usuario pasa el mouse por encima */
-  .footer-credits:hover,
-  .footer-location:hover {
-    color: var(--color-text-nav-hover);
-    transition: var(--transition-smooth);
-  }
+}

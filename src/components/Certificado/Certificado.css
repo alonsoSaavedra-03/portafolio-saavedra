@@ -1,39 +1,44 @@
 /* src/components/pages/Certificados/Certificado.css */
 
 .certificates-section {
-    background-color: var(--color-bg-dark);
+    background-color: transparent !important;
+    background: transparent !important;
     color: #ffffff;
     padding: 5rem 0 8rem 0;
   }
   
+  /* Tarjeta de certificado con efecto espejo unificado */
   .cert-card {
     background-color: var(--color-card-bg) !important;
-    border: 1px solid rgba(255, 255, 255, 0.02);
-    border-radius: 12px;
+    border: 1px solid var(--color-border-box) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     overflow: hidden;
     transition: var(--transition-smooth);
+    border-radius: 12px;
   }
   
+  /* Hover de la tarjeta unificado con el resto del portafolio */
   .cert-card:hover {
     transform: translateY(-5px);
-    border-color: var(--color-accent-neon);
+    border-color: color-mix(in srgb, var(--color-accent-neon) 40%, transparent) !important;
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
   }
   
-  /* --- CONTENEDOR DE IMAGEN REDUCIDO Y CONTROLADO --- */
+  /* CONTENEDOR DE IMAGEN REDUCIDO Y CONTROLADO */
   .cert-img-container {
     position: relative;
-    height: 210px; /* 🚀 Ajuste ideal: Ni muy grande ni muy chico, perfecto para laptops */
-    background-color: #000000;
+    background-color: rgba(15, 15, 15, 0.4) !important;
+    border-bottom: 1px solid var(--color-border-box);
+    height: 210px; 
     overflow: hidden;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
   }
   
   .cert-img-top {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top; /* Muestra la cabecera del certificado */
+    object-position: top; 
     opacity: 0.85;
     transition: var(--transition-smooth);
   }
@@ -43,7 +48,7 @@
     transform: scale(1.02);
   }
   
-  /* --- BADGES FLOTANTES --- */
+  /* BADGES FLOTANTES (MANTENIDOS INTACTOS) */
   .cert-badge-float {
     position: absolute;
     top: 15px;
@@ -68,9 +73,9 @@
     border: 1px solid #034f84; 
   }
   
-  /* --- TEXTOS COMPACTOS --- */
+  /* TEXTOS COMPACTOS (MANTENIDOS INTACTOS) */
   .cert-title-text {
-    font-size: 1.15rem; /* Tamaño balanceado para grillas de 3 */
+    font-size: 1.15rem; 
     font-weight: 600;
     line-height: 1.4;
     color: #ffffff;
@@ -78,13 +83,13 @@
   }
   
   .cert-issuer-text {
-    color: #64748b;
+    color: var(--color-text-nav);
     font-size: 0.85rem;
     font-family: monospace;
     text-align: left;
   }
   
-  /* --- BOTONES --- */
+  /* BOTONES DE ACCIÓN (MANTENIDOS INTACTOS) */
   .btn-cert-view, 
   .btn-cert-download {
     font-family: monospace;
@@ -99,17 +104,20 @@
     transition: var(--transition-smooth);
   }
   
+  /* Botón Ver (Gris Traslúcido) */
   .btn-cert-view {
-    background-color: #0d0d0d !important;
-    color: #94a3b8 !important;
-    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    background-color: rgba(15, 15, 15, 0.6) !important;
+    color: var(--color-text-nav) !important;
+    border: 1px solid var(--color-border-box) !important;
   }
   
   .btn-cert-view:hover {
     color: #ffffff !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: color-mix(in srgb, var(--color-text-nav) 50%, transparent) !important;
   }
   
+  /* Botón Descargar (Contorno Neón) */
   .btn-cert-download {
     background-color: transparent !important;
     color: var(--color-accent-neon) !important;
