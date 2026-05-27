@@ -18,28 +18,14 @@
 
 /* Tarjetas principales con el efecto espejo idéntico a Sobre Mí */
 .skills-card {
-  position: relative;
-  background-color: transparent !important;
-  border: 1px solid var(--color-border-box) !important;
+  background: rgba(30, 30, 35, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 12px;
   transition: var(--transition-smooth);
-  overflow: hidden; /* importante */
-  z-index: 1;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
-
-/* Este pseudo-elemento ES el fondo desenfocado */
-.skills-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("/bg.jpg"); /* misma imagen que el fondo */
-  background-size: cover;
-  background-attachment: fixed; /* hace que coincida con el fondo */
-  filter: blur(12px) brightness(0.4);
-  z-index: -1;
-  border-radius: 12px;
-}
-
 /* Hover de la tarjeta principal unificado */
 .skills-card:hover {
   border-color: color-mix(in srgb, var(--color-accent-neon) 40%, transparent) !important;
