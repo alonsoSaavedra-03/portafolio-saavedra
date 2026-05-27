@@ -76,23 +76,6 @@ html {
   padding: 120px 0 60px 0;
 }
 
-/* ESTILO RECOMENDADO PARA LAS TARJETAS DE TU TRABAJO */
-.portfolio-card {
-  background-color: var(--color-card-bg) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--color-border-box);
-  border-radius: 16px;
-  padding: 1.5rem;
-  transition: var(--transition-smooth);
-}
-
-.portfolio-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--color-accent-neon);
-  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.15); /* Corregido para que brille morado a juego */
-}
-
 /* DISEÑO DE LA BARRA DE DESPLAZAMIENTO (SCROLLBAR) */
 ::-webkit-scrollbar {
   width: 10px;
@@ -111,4 +94,44 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent-neon); 
+}
+
+/* ─── ENCIENDE EL CRISTAL EN TODOS TUS CONTENEDORES (SOLUCIÓN VERCEL) ─── */
+/* Agrupamos cada clase que encontré en tus archivos para repararlas de golpe */
+.cert-card,
+.skills-card,
+.info-box,
+.about-card,
+.project-card,
+.service-card,
+.contact-box,
+.contact-form-card,
+.portfolio-card {
+  
+  /* 1. Bajamos la opacidad base del fondo al 20% para que el navegador no lo procese como bloque sólido */
+  background-color: rgba(18, 18, 20, 0.20) !important;
+  background: rgba(18, 18, 20, 0.20) !important;
+
+  /* 2. Forzamos el máximo desenfoque de hardware sobre la arena que se mueve atrás */
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important; /* Salva la vida en Safari e iOS */
+
+  /* 3. Aseguramos el reflejo de borde fino de un cristal real */
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  
+  /* 4. Forzamos la posición en capas para el motor de producción */
+  position: relative !important;
+}
+
+/* ─── HOVER GLOBAL UNIFICADO CON BRILLO MORADO NEÓN ─── */
+.cert-card:hover,
+.skills-card:hover,
+.info-box:hover,
+.about-card:hover,
+.project-card:hover,
+.service-card:hover,
+.contact-form-card:hover,
+.portfolio-card:hover {
+  border-color: var(--color-accent-neon) !important;
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--color-accent-neon) 15%, transparent) !important;
 }
