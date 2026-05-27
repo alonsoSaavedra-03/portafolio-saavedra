@@ -65,19 +65,6 @@ html {
   padding: 120px 0 60px 0;
 }
 
-/* ELIMINACIÓN DE FONDOS OPACOS */
-#root,
-.app-container,
-main,
-section,
-.container,
-.container-fluid,
-.row,
-[class*="section"] {
-  background-color: transparent !important;
-  background: transparent !important;
-}
-
 /* ESTILO RECOMENDADO PARA LAS TARJETAS DE TU TRABAJO  */
 .portfolio-card {
   background-color: var(--color-card-bg) !important;
