@@ -1,7 +1,7 @@
 // src/components/pages/Inicio/Inicio.jsx
 import React from 'react';
 import './Inicio.css';
-import fotoPerfil from '../../../assets/aaaaaa.png'; 
+import fotoPerfil from '../../assets/aaaaaa.png';
 
 /**
  * Componente de la página de Inicio (Hero Section).
