@@ -97,7 +97,6 @@ html {
 }
 
 /* ─── ENCIENDE EL CRISTAL EN TODOS TUS CONTENEDORES (SOLUCIÓN VERCEL) ─── */
-/* Agrupamos cada clase que encontré en tus archivos para repararlas de golpe */
 .cert-card,
 .skills-card,
 .info-box,
@@ -108,18 +107,22 @@ html {
 .contact-form-card,
 .portfolio-card {
   
-  /* 1. Bajamos la opacidad base del fondo al 20% para que el navegador no lo procese como bloque sólido */
-  background-color: rgba(18, 18, 20, 0.20) !important;
-  background: rgba(18, 18, 20, 0.20) !important;
+  /* 1. Un tono ahumado oscuro (0.35) que da la base para que el desenfoque sea visible */
+  background-color: rgba(10, 10, 12, 0.35) !important;
+  background: rgba(10, 10, 12, 0.35) !important;
 
-  /* 2. Forzamos el máximo desenfoque de hardware sobre la arena que se mueve atrás */
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important; /* Salva la vida en Safari e iOS */
+  /* 2. Forzamos el máximo desenfoque sobre la arena */
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important; 
 
-  /* 3. Aseguramos el reflejo de borde fino de un cristal real */
+  /* 3. Activación de GPU: Obliga al navegador en producción a renderizar el blur en tiempo real */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  /* 4. Reflejo de borde fino de un cristal real */
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  
-  /* 4. Forzamos la posición en capas para el motor de producción */
   position: relative !important;
 }
 
@@ -132,6 +135,8 @@ html {
 .service-card:hover,
 .contact-form-card:hover,
 .portfolio-card:hover {
+  /* Al hacer hover, mantenemos la aceleración de hardware para evitar parpadeos */
+  transform: translateY(-5px) translateZ(0) !important; 
   border-color: var(--color-accent-neon) !important;
   box-shadow: 0 10px 30px color-mix(in srgb, var(--color-accent-neon) 15%, transparent) !important;
 }
