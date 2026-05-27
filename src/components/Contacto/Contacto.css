@@ -21,10 +21,7 @@
   
   /* CAJAS DE CANALES (IZQUIERDA) */
   .contact-box {
-    background-color: var(--color-card-bg) !important;
     border: 1px solid var(--color-border-box) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     border-radius: 10px;
     transition: var(--transition-smooth);
   }
@@ -64,10 +61,7 @@
   
   /* TARJETA FORMULARIO (DERECHA) */
   .contact-form-card {
-    background-color: var(--color-card-bg) !important;
     border: 1px solid var(--color-border-box) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     border-radius: 12px;
   }
   
