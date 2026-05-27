@@ -23,26 +23,37 @@
   padding: 0;
 }
 
-/* FONDO ABSTRACTO GLOBAL ANIMADO  */
+/* BASE GLOBAL DEL CUERPO */
 body {
   margin: 0;
   font-family: var(--font-serif);
   background-color: var(--color-bg-dark);
+  color: #eee;
+  overflow-x: hidden;
+  position: relative; /* Obligatorio para contener la capa del fondo abstracto */
+}
+
+/* ─── EL ARREGLO SALVAVIDAS: CAPA DE FONDO AISLADA ─── */
+body::before {
+  content: '';
+  position: fixed; /* Mantiene el fondo quieto mientras haces scroll */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   
-  /* Imagen abstracta de Unsplash que conseguiste */
+  /* Tu imagen abstracta de Unsplash asignada a esta capa */
   background-image: url("https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80");
   background-repeat: repeat;
   background-size: cover;
   background-position: 0px 0px;
   
-  /* Ajustamos a 120s para que el movimiento de fondo sea súper sutil y no canse la vista */
+  /* Animación súper sutil de 120s */
   animation: fondoAbstractoInfinito 120s linear infinite;
   
-  /* Mantiene el fondo quieto mientras el contenido real de tu trabajo se desplaza encima */
-  background-attachment: fixed; 
-  
-  color: #eee;
-  overflow-x: hidden;
+  /* Propiedades críticas de aislamiento */
+  z-index: -1 !important;   /* Lo envía detrás de absolutamente todo */
+  pointer-events: none;     /* Evita que interfiera con los clics de tus tarjetas */
 }
 
 @keyframes fondoAbstractoInfinito {
@@ -65,7 +76,7 @@ html {
   padding: 120px 0 60px 0;
 }
 
-/* ESTILO RECOMENDADO PARA LAS TARJETAS DE TU TRABAJO  */
+/* ESTILO RECOMENDADO PARA LAS TARJETAS DE TU TRABAJO */
 .portfolio-card {
   background-color: var(--color-card-bg) !important;
   backdrop-filter: blur(12px);
@@ -79,10 +90,10 @@ html {
 .portfolio-card:hover {
   transform: translateY(-5px);
   border-color: var(--color-accent-neon);
-  box-shadow: 0 10px 30px rgba(255, 87, 34, 0.1);
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.15); /* Corregido para que brille morado a juego */
 }
 
-/* DISEÑO DE LA BARRA DE DESPLAZAMIENTO (SCROLLBAR)  */
+/* DISEÑO DE LA BARRA DE DESPLAZAMIENTO (SCROLLBAR) */
 ::-webkit-scrollbar {
   width: 10px;
 }
