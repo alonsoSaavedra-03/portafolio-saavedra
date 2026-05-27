@@ -34,26 +34,25 @@ body {
 }
 
 /* ─── EL ARREGLO SALVAVIDAS: CAPA DE FONDO AISLADA ─── */
-body::before {
-  content: '';
-  position: fixed; /* Mantiene el fondo quieto mientras haces scroll */
+#bg-layer {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  
-  /* Tu imagen abstracta de Unsplash asignada a esta capa */
   background-image: url("https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80");
   background-repeat: repeat;
   background-size: cover;
   background-position: 0px 0px;
-  
-  /* Animación súper sutil de 120s */
   animation: fondoAbstractoInfinito 120s linear infinite;
-  
-  /* Propiedades críticas de aislamiento */
-  z-index: -1 !important;   /* Lo envía detrás de absolutamente todo */
-  pointer-events: none;     /* Evita que interfiera con los clics de tus tarjetas */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Root encima del fondo */
+#root {
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes fondoAbstractoInfinito {
@@ -107,23 +106,20 @@ html {
 .contact-form-card,
 .portfolio-card {
   
-  /* 1. Un tono ahumado oscuro (0.35) que da la base para que el desenfoque sea visible */
   background-color: rgba(10, 10, 12, 0.35) !important;
   background: rgba(10, 10, 12, 0.35) !important;
-
-  /* 2. Forzamos el máximo desenfoque sobre la arena */
   backdrop-filter: blur(25px) !important;
-  -webkit-backdrop-filter: blur(25px) !important; 
-
-  /* 3. Activación de GPU: Obliga al navegador en producción a renderizar el blur en tiempo real */
+  -webkit-backdrop-filter: blur(25px) !important;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-
-  /* 4. Reflejo de borde fino de un cristal real */
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   position: relative !important;
+
+  /* ─── AGREGA ESTAS DOS LÍNEAS ─── */
+  isolation: isolate;
+  will-change: backdrop-filter;
 }
 
 /* ─── HOVER GLOBAL UNIFICADO CON BRILLO MORADO NEÓN ─── */
