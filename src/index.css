@@ -31,7 +31,6 @@ body {
   background-color: var(--color-bg-dark);
   color: #eee;
   overflow-x: hidden;
-  /* ✅ SIN position: relative — evita que cree stacking context sobre el bg-layer */
 }
 
 /* ─── CAPA DE FONDO ─── */
@@ -46,9 +45,7 @@ body {
   background-size: cover;
   background-position: 0px 0px;
   animation: fondoAbstractoInfinito 120s linear infinite;
-  z-index: 0;
   pointer-events: none;
-  /* ✅ Sin transform aquí — evita crear stacking context innecesario */
 }
 
 @keyframes fondoAbstractoInfinito {
@@ -56,12 +53,6 @@ body {
   100% { background-position: 0px -3000px; }
 }
 
-/* ✅ Root justo encima del fondo */
-#root {
-  position: relative;
-  z-index: 1;
-  /* ✅ SIN transform, filter, ni isolation */
-}
 
 /* Secciones del portafolio */
 .about-section {
@@ -96,22 +87,12 @@ body {
 .contact-box,
 .contact-form-card,
 .portfolio-card {
-  background: rgba(10, 10, 12, 0.35) !important;
-
-  /* ✅ Las dos líneas críticas para que el blur funcione en Vercel */
-  backdrop-filter: blur(25px) saturate(160%) !important;
-  -webkit-backdrop-filter: blur(25px) saturate(160%) !important;
-
-  /* ✅ Fuerza renderizado en GPU sin crear stacking context */
-  transform: translate3d(0, 0, 0) !important;
-  -webkit-transform: translate3d(0, 0, 0) !important;
-
+  background: rgba(10, 10, 12, 0.45) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  position: relative !important;
-  z-index: 2;
-
-  /* ❌ ELIMINADOS: isolation, will-change, backface-visibility */
-  /* Esos tres rompían el backdrop-filter en producción   */
+  /* ✅ SIN transform, SIN z-index, SIN isolation */
+  /* Cualquiera de esos tres rompe backdrop-filter en producción */
 }
 
 /* ─── HOVER ─── */
