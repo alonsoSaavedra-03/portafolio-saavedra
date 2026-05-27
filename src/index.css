@@ -6,34 +6,35 @@
   --color-bg-dark: #121214;        
   --color-card-bg: rgba(26, 26, 30, 0.55); 
   --color-border-box: rgba(42, 42, 48, 0.4); 
-  
   --color-accent-neon: #a855f7;
   --color-btn-neon: #ec4899;
-  
   --color-text-nav: white;      
   --color-text-nav-hover: #ffffff;
   --font-serif: 'Playfair Display', 'Georgia', serif; 
   --transition-smooth: all 0.3s ease;
 }
 
-/* Reinicio de márgenes básicos */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* BASE GLOBAL DEL CUERPO */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 45px;
+}
+
 body {
   margin: 0;
   font-family: var(--font-serif);
   background-color: var(--color-bg-dark);
   color: #eee;
   overflow-x: hidden;
-  position: relative; /* Obligatorio para contener la capa del fondo abstracto */
+  /* ✅ SIN position: relative — evita que cree stacking context sobre el bg-layer */
 }
 
-/* ─── EL ARREGLO SALVAVIDAS: CAPA DE FONDO AISLADA ─── */
+/* ─── CAPA DE FONDO ─── */
 #bg-layer {
   position: fixed;
   top: 0;
@@ -47,27 +48,19 @@ body {
   animation: fondoAbstractoInfinito 120s linear infinite;
   z-index: 0;
   pointer-events: none;
-}
-
-/* Root encima del fondo */
-#root {
-  position: relative;
-  z-index: 1;
+  /* ✅ Sin transform aquí — evita crear stacking context innecesario */
 }
 
 @keyframes fondoAbstractoInfinito {
-  0% {
-    background-position: 0px 0px;
-  }
-  100% {
-    background-position: 0px -3000px; /* Desplazamiento vertical constante */
-  }
+  0%   { background-position: 0px 0px; }
+  100% { background-position: 0px -3000px; }
 }
 
-/* Configuración de scroll general */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 45px;
+/* ✅ Root justo encima del fondo */
+#root {
+  position: relative;
+  z-index: 1;
+  /* ✅ SIN transform, filter, ni isolation */
 }
 
 /* Secciones del portafolio */
@@ -75,15 +68,13 @@ html {
   padding: 120px 0 60px 0;
 }
 
-/* DISEÑO DE LA BARRA DE DESPLAZAMIENTO (SCROLLBAR) */
-::-webkit-scrollbar {
-  width: 10px;
-}
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 10px; }
 
 ::-webkit-scrollbar-track {
   background: var(--color-bg-dark); 
 }
- 
+
 ::-webkit-scrollbar-thumb {
   background: #222222; 
   border-radius: 5px;
@@ -95,7 +86,7 @@ html {
   background: var(--color-accent-neon); 
 }
 
-/* ─── ENCIENDE EL CRISTAL EN TODOS TUS CONTENEDORES (SOLUCIÓN VERCEL) ─── */
+/* ─── GLASSMORPHISM EN CARDS ─── */
 .cert-card,
 .skills-card,
 .info-box,
@@ -105,24 +96,25 @@ html {
 .contact-box,
 .contact-form-card,
 .portfolio-card {
-  
-  background-color: rgba(10, 10, 12, 0.35) !important;
   background: rgba(10, 10, 12, 0.35) !important;
-  backdrop-filter: blur(25px) !important;
-  -webkit-backdrop-filter: blur(25px) !important;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+
+  /* ✅ Las dos líneas críticas para que el blur funcione en Vercel */
+  backdrop-filter: blur(25px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(160%) !important;
+
+  /* ✅ Fuerza renderizado en GPU sin crear stacking context */
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   position: relative !important;
+  z-index: 2;
 
-  /* ─── AGREGA ESTAS DOS LÍNEAS ─── */
-  isolation: isolate;
-  will-change: backdrop-filter;
+  /* ❌ ELIMINADOS: isolation, will-change, backface-visibility */
+  /* Esos tres rompían el backdrop-filter en producción   */
 }
 
-/* ─── HOVER GLOBAL UNIFICADO CON BRILLO MORADO NEÓN ─── */
+/* ─── HOVER ─── */
 .cert-card:hover,
 .skills-card:hover,
 .info-box:hover,
@@ -131,8 +123,7 @@ html {
 .service-card:hover,
 .contact-form-card:hover,
 .portfolio-card:hover {
-  /* Al hacer hover, mantenemos la aceleración de hardware para evitar parpadeos */
-  transform: translateY(-5px) translateZ(0) !important; 
+  transform: translateY(-5px) translate3d(0, 0, 0) !important;
   border-color: var(--color-accent-neon) !important;
   box-shadow: 0 10px 30px color-mix(in srgb, var(--color-accent-neon) 15%, transparent) !important;
 }
