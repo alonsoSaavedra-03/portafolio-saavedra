@@ -46,8 +46,7 @@
   padding-top: 0.85rem !important;
   padding-bottom: 0.85rem !important;
 
-  /* Efecto Glassmorphism */
-  background-color: rgba(15, 15, 15, 0.65) !important;
+  background-color: rgba(18, 18, 22, 0.88) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   
@@ -118,7 +117,7 @@
     width: 92% !important;
     border-radius: 40px !important;
     
-    background-color: rgba(15, 15, 15, 0.70) !important;
+    background-color: rgba(18, 18, 22, 0.88) !important;
     backdrop-filter: blur(16px) !important;
     -webkit-backdrop-filter: blur(16px) !important;
     

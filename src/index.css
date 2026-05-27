@@ -12,6 +12,11 @@
   --color-text-nav-hover: #ffffff;
   --font-serif: 'Playfair Display', 'Georgia', serif; 
   --transition-smooth: all 0.3s ease;
+
+  /* ─── VARIABLES DE CARDS ─── */
+  --card-bg: rgba(18, 18, 22, 0.88);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 *, *::before, *::after {

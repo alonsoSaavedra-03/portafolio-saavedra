@@ -9,12 +9,11 @@
   
   /* Tarjeta base integrada con el efecto cristal traslúcido */
   .service-card {
-    background-color: var(--color-card-bg) !important;
-    border: 1px solid var(--color-border-box) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--card-bg) !important;
+    border: 1px solid var(--card-border) !important;
     border-radius: 12px;
     transition: var(--transition-smooth);
+    box-shadow: var(--card-shadow);
   }
   
   /* Efecto hover unificado */

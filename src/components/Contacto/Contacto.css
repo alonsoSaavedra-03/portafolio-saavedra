@@ -11,6 +11,7 @@
   .contact-subtitle {
     font-size: 1.8rem;
     font-weight: 600;
+    color: #ffffff !important;
   }
   
   .contact-description {
@@ -21,9 +22,11 @@
   
   /* CAJAS DE CANALES (IZQUIERDA) */
   .contact-box {
-    border: 1px solid var(--color-border-box) !important;
+    background: var(--card-bg) !important;
+    border: 1px solid var(--card-border) !important;
     border-radius: 10px;
     transition: var(--transition-smooth);
+    box-shadow: var(--card-shadow);
   }
   
   .contact-box:hover {
@@ -61,11 +64,10 @@
   
   /* TARJETA FORMULARIO (DERECHA) */
   .contact-form-card {
-    background-color: var(--color-card-bg) !important;
-    border: 1px solid var(--color-border-box) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--card-bg) !important;
+    border: 1px solid var(--card-border) !important;
     border-radius: 12px;
+    box-shadow: var(--card-shadow);
   }
   
   .form-label-custom {

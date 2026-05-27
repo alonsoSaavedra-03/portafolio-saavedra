@@ -18,13 +18,11 @@
 
 /* Tarjetas principales con el efecto espejo idéntico a Sobre Mí */
 .skills-card {
-  background: rgba(30, 30, 35, 0.75) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
   border-radius: 12px;
   transition: var(--transition-smooth);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: var(--card-shadow);
 }
 /* Hover de la tarjeta principal unificado */
 .skills-card:hover {
