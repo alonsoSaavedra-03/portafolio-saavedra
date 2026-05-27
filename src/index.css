@@ -75,35 +75,3 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent-neon); 
 }
-
-/* ─── GLASSMORPHISM EN CARDS ─── */
-.cert-card,
-.skills-card,
-.info-box,
-.about-card,
-.project-card,
-.service-card,
-.contact-box,
-.contact-form-card,
-.portfolio-card {
-  background: rgba(10, 10, 12, 0.45) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  /* ✅ SIN transform, SIN z-index, SIN isolation */
-  /* Cualquiera de esos tres rompe backdrop-filter en producción */
-}
-
-/* ─── HOVER ─── */
-.cert-card:hover,
-.skills-card:hover,
-.info-box:hover,
-.about-card:hover,
-.project-card:hover,
-.service-card:hover,
-.contact-form-card:hover,
-.portfolio-card:hover {
-  transform: translateY(-5px) translate3d(0, 0, 0) !important;
-  border-color: var(--color-accent-neon) !important;
-  box-shadow: 0 10px 30px color-mix(in srgb, var(--color-accent-neon) 15%, transparent) !important;
-}
